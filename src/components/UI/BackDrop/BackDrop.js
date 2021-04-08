@@ -7,7 +7,6 @@ const backDrop = (props) => (
             className='BackDrop'
             onClick={props.clickedBackDrop}
         >
-
         </div>
         : null
 );
