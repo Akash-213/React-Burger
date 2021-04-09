@@ -15,23 +15,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
             error: null
         }
 
-
-        constructor() {
-            super();
-            axios.interceptors.request.use(req => {
-                this.setState({ error: null })
-                return req
-            })
-
-            // returning interceptors is necessary
-            axios.interceptors.response.use(res => res, error => {
-                this.setState({ error: error })
-            })
-        }
-
-        //use constructors
-        // componentWillMount() {
-
+        // constructor() {
+        //     super();
         //     axios.interceptors.request.use(req => {
         //         this.setState({ error: null })
         //         return req
@@ -42,6 +27,20 @@ const withErrorHandler = (WrappedComponent, axios) => {
         //         this.setState({ error: error })
         //     })
         // }
+
+        // use constructors
+        componentWillMount() {
+
+            axios.interceptors.request.use(req => {
+                this.setState({ error: null })
+                return req
+            })
+
+            // returning interceptors is necessary
+            axios.interceptors.response.use(res => res, error => {
+                this.setState({ error: error })
+            })
+        }
 
         //old Method to remove interceptors
         // componentWillUnmount() {
